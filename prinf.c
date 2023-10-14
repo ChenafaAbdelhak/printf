@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%' && format[i + 1] != '\0')
 		{
-			switch(format[i + 1])
+			switch (format[i + 1])
 			{
 				case 'c':
 					c = va_arg(ap, int);
@@ -46,6 +46,10 @@ int _printf(const char *format, ...)
 	va_end(ap);
 	return (0);
 }
+/**
+ * _puts - prints a string
+ * @str: string pointer
+ */
 
 void _puts(char *str)
 {
