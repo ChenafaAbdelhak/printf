@@ -10,7 +10,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i, c;
+	int i, c, printed_var = 0, n = 0;
 	va_list ap;
 	char *str = NULL;
 
@@ -28,11 +28,14 @@ int _printf(const char *format, ...)
 				case 'c':
 					c = va_arg(ap, int);
 					_putchar(c);
+					printed_var++;
+					n += 2;
 					i++;
 					break;
 				case 's':
 					str = va_arg(ap, char *);
-					_puts(str);
+					printed_var += _puts(str);
+					n += 2;
 					i++;
 					break;
 				default:
@@ -44,14 +47,14 @@ int _printf(const char *format, ...)
 
 	}
 	va_end(ap);
-	return (0);
+	return (i + printed_var - n);
 }
 /**
  * _puts - prints a string
  * @str: string pointer
  */
 
-void _puts(char *str)
+int _puts(char *str)
 {
 	int i = 0;
 
@@ -60,4 +63,5 @@ void _puts(char *str)
 		_putchar(str[i]);
 		i++;
 	}
+	return (i);
 }

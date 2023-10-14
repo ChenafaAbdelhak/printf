@@ -3,9 +3,15 @@
 
 int main(void)
 {
-	_printf("hello its %s starts with %c","abdelhak",'A',"kdkd");
+	int n = 0;
+
+	n = _printf("hello its %s starts with %c","abdelhak",'A',"kdkd");
+	printf("*** %d ***", n);
 	_printf("\n");
-	_printf("hello its %s starts with %c","abdelhak",'A',"kdkd");
+
+	n = printf("hello its %s starts with %c","abdelhak",'A');
+	printf("*** %d ***", n);
 	printf("\n");
+
 	return (0);
 }
