@@ -10,9 +10,9 @@
 
 int _printf(const char *format, ...)
 {
-	int i, c, printed_var = 0, n = 0;
+	int i, count = 0;
 	va_list ap;
-	char *str = NULL;
+	char c, *str = NULL;
 
 	va_start(ap, format);
 
@@ -28,26 +28,26 @@ int _printf(const char *format, ...)
 				case 'c':
 					c = va_arg(ap, int);
 					_putchar(c);
-					printed_var++;
-					n += 2;
+					count++;
 					i++;
 					break;
-				case 's':
-					str = va_arg(ap, char *);
-					printed_var += _puts(str);
-					n += 2;
+				case 's':;
+				str = va_arg(ap, char *);
+					count += _puts(str);
 					i++;
 					break;
 				default:
 					_putchar(format[i]);
+					count++;
 			}
 			continue;
 		}
 		_putchar(format[i]);
+		count++;
 
 	}
 	va_end(ap);
-	return (i + printed_var - n);
+	return (count);
 }
 /**
  * _puts - prints a string
