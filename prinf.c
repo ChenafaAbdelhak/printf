@@ -42,13 +42,11 @@ int _printf(const char *format, ...)
 					i++;
 					break;
 				default:
-					_putchar(format[i]);
-					count++;
+					_putchar(format[i]), count++;
 			}
 			continue;
 		}
-		_putchar(format[i]);
-		count++;
+		_putchar(format[i]), count++;
 	}
 	va_end(ap);
 	return (count);
