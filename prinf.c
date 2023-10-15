@@ -15,10 +15,8 @@ int _printf(const char *format, ...)
 	char c, *str = NULL;
 
 	va_start(ap, format);
-
 	if (format == NULL)
 		return (0);
-
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%' && format[i + 1] != '\0')
@@ -31,9 +29,14 @@ int _printf(const char *format, ...)
 					count++;
 					i++;
 					break;
-				case 's':;
+				case 's':
 				str = va_arg(ap, char *);
 					count += _puts(str);
+					i++;
+					break;
+				case '%':
+					_putchar('%');
+					count++;
 					i++;
 					break;
 				default:
@@ -44,7 +47,6 @@ int _printf(const char *format, ...)
 		}
 		_putchar(format[i]);
 		count++;
-
 	}
 	va_end(ap);
 	return (count);
@@ -52,6 +54,7 @@ int _printf(const char *format, ...)
 /**
  * _puts - prints a string
  * @str: string pointer
+ * Return: number of printed characters
  */
 
 int _puts(char *str)
