@@ -42,7 +42,7 @@ int _printf(const char *format, ...)
 					i++;
 					break;
 				default:
-					return (0);
+					_putchar(format[i]), count++;
 			}
 			continue;
 		}
