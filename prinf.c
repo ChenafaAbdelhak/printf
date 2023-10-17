@@ -10,7 +10,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i, count = 0;
+	int i, count = 0, number;
 	va_list ap;
 	char c, *str = NULL;
 
@@ -36,10 +36,10 @@ int _printf(const char *format, ...)
 					count += _puts(str);
 					i++;
 					break;
+				case 'd':
+					number = va_arg(ap, int), count += print_number(number), i++;
 				case '%':
-					_putchar('%');
-					count++;
-					i++;
+					_putchar('%'), count++, i++;
 					break;
 				default:
 					_putchar(format[i]), count++;
@@ -67,4 +67,41 @@ int _puts(char *str)
 		i++;
 	}
 	return (i);
+}
+
+/**
+ *print_number - function.
+ *@n: input.
+ *Return: nothing.
+ */
+int print_number(int n)
+{
+	unsigned int m, d, count, printed = 0;
+
+	if (n < 0)
+	{
+		_putchar(45);
+		printed++;
+		m = n * -1;
+	}
+	else
+	{
+		m = n;
+	}
+
+	d = m;
+	count = 1;
+
+	while (d > 9)
+	{
+		d /= 10;
+		count *= 10;
+	}
+
+	for (; count >= 1; count /= 10)
+	{
+		_putchar(((m / count) % 10) + 48);
+		printed++;
+	}
+	return (printed);
 }
