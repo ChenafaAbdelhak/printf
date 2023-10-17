@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	char c, *str = NULL;
 
 	va_start(ap, format);
-	if (format == NULL)
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 	for (i = 0; format[i] != '\0'; i++)
 	{
@@ -37,7 +37,10 @@ int _printf(const char *format, ...)
 					i++;
 					break;
 				case 'd':
-					number = va_arg(ap, int), count += print_number(number), i++;
+					number = va_arg(ap, int);
+					if (number == NULL)
+						return (-1);	
+					count += print_number(number), i++;
 					break;
 				case '%':
 					_putchar('%'), count++, i++;
