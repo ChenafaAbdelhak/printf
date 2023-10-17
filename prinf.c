@@ -26,20 +26,16 @@ int _printf(const char *format, ...)
 				case 'c':
 					c = va_arg(ap, int);
 					_putchar(c);
-					count++;
-					i++;
-					break;
+					count++, i++, break;
 				case 's':
 					str = va_arg(ap, char *);
 					if (str == NULL)
 						str = "(null)";
-					count += _puts(str);
-					i++;
-					break;
+					count += _puts(str), i++, break;
 				case 'd':
 					number = va_arg(ap, int);
 					if (!number)
-						return (-1);	
+						return (-1);
 					count += print_number(number), i++;
 					break;
 				case '%':
