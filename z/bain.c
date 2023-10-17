@@ -5,7 +5,7 @@ int main(void)
 {
 	_printf("%!\n");
 
-	printf("%!\n");
+	printf("a\n");
 
 	return (0);
 }

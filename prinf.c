@@ -38,6 +38,7 @@ int _printf(const char *format, ...)
 					break;
 				case 'd':
 					number = va_arg(ap, int), count += print_number(number), i++;
+					break;
 				case '%':
 					_putchar('%'), count++, i++;
 					break;
