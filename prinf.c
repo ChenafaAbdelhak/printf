@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 					break;
 				case 'd':
 					number = va_arg(ap, int);
-					if (number == NULL)
+					if (!number)
 						return (-1);	
 					count += print_number(number), i++;
 					break;
