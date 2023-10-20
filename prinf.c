@@ -45,10 +45,8 @@ int _printf(const char *format, ...)
 					break;
 				default:
 					_putchar(format[i + 1]), count++, i++;
-			}
-			continue;
-		}
-		_putchar(format[i]), count++;
+			} continue;
+		} _putchar(format[i]), count++;
 	}
 	va_end(ap);
 	return (count);
@@ -79,6 +77,7 @@ int _puts(char *str)
 int print_number(int n)
 {
 	unsigned int m, d, count, printed = 0;
+
 	if (n == 0)
 	{
 		_putchar('0');
@@ -121,7 +120,7 @@ void inbinary(int num)
 {
 	int binaryNum[32];
 	int j, i = 0;
-	
+
 	UNUSED(binaryNum);
 	if (num == 0)
 	{
