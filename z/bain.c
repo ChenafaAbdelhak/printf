@@ -11,8 +11,8 @@ int main(void)
 	printf("n = %d\n", n);
 */
 	
-		printf("%K\n");	
-		_printf("%K\n");
+		printf("%d p\n", 0);	
+		_printf("%d _\n", 0);
 	
 	return (0);
 }

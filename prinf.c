@@ -35,9 +35,7 @@ int _printf(const char *format, ...)
 					break;
 				case 'i':
 				case 'd':
-					number = va_arg(ap, int);
-					if (!number)
-						return (-1);
+					number =(int) va_arg(ap, int);
 					count += print_number(number), i++;
 					break;
 				case '%':
@@ -80,7 +78,7 @@ int print_number(int n)
 
 	if (n == 0)
 	{
-		_putchar('0');
+		_putchar(48);
 		return (1);
 	}
 	if (n < 0)
