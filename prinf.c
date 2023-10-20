@@ -110,28 +110,3 @@ int print_number(int n)
 	}
 	return (printed);
 }
-
-/*
- * inbinary - convert decimal to binary
- * @num: decimal number
- */
-
-void inbinary(int num)
-{
-	int binaryNum[32];
-	int j, i = 0;
-
-	if (num == 0)
-	{
-		printf("0");
-		return;
-	}
-
-	while (num > 0)
-	{
-		binaryNum[i++] = num % 2;
-		num /= 2;
-	}
-	for (j = i - 1; j >= 0; j--)
-		_putchar(binaryNum[j]);
-}
