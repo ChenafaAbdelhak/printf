@@ -34,6 +34,7 @@ int _printf(const char *format, ...)
 						str = "(null)";
 					count += _puts(str), i++;
 					break;
+				case 'i':
 				case 'd':
 					number = va_arg(ap, int);
 					if (!number)
