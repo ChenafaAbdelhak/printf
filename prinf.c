@@ -121,7 +121,6 @@ void inbinary(int num)
 	int binaryNum[32];
 	int j, i = 0;
 
-	UNUSED(binaryNum);
 	if (num == 0)
 	{
 		printf("0");
