@@ -3,9 +3,12 @@
 
 int main(void)
 {
-	_printf("%!\n");
+	int n = 0;
 
-	printf("a\n");
+	n = _printf("its %s startig with %c %d\n","abdelhak",'A', 333);
+	printf("n = %d\n", n);
 
+	n = printf("its %s startig with %c %d\n","abdelhak",'A', 333);
+	printf("n = %d\n", n);
 	return (0);
 }

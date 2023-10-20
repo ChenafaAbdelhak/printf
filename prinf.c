@@ -26,12 +26,14 @@ int _printf(const char *format, ...)
 				case 'c':
 					c = va_arg(ap, int);
 					_putchar(c);
-					count++, i++, break;
+					count++, i++;
+					break;
 				case 's':
 					str = va_arg(ap, char *);
 					if (str == NULL)
 						str = "(null)";
-					count += _puts(str), i++, break;
+					count += _puts(str), i++;
+					break;
 				case 'd':
 					number = va_arg(ap, int);
 					if (!number)
@@ -42,7 +44,7 @@ int _printf(const char *format, ...)
 					_putchar('%'), count++, i++;
 					break;
 				default:
-					_putchar(format[i]), count++;
+					return (-1);
 			}
 			continue;
 		}
