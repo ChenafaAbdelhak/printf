@@ -25,8 +25,7 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					c = va_arg(ap, int);
-					_putchar(c);
-					count++, i++;
+					_putchar(c), count++, i++;
 					break;
 				case 's':
 					str = va_arg(ap, char *);
@@ -45,7 +44,7 @@ int _printf(const char *format, ...)
 					_putchar('%'), count++, i++;
 					break;
 				default:
-					return (-1);
+					_putchar(format[i + 1]), count++, i++;
 			}
 			continue;
 		}
@@ -80,7 +79,11 @@ int _puts(char *str)
 int print_number(int n)
 {
 	unsigned int m, d, count, printed = 0;
-
+	if (n == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 	if (n < 0)
 	{
 		_putchar(45);
@@ -107,4 +110,30 @@ int print_number(int n)
 		printed++;
 	}
 	return (printed);
+}
+
+/*
+ * inbinary - convert decimal to binary
+ * @num: decimal number
+ */
+
+void inbinary(int num)
+{
+	int binaryNum[32];
+	int j, i = 0;
+	
+	UNUSED(binaryNum);
+	if (num == 0)
+	{
+		printf("0");
+		return;
+	}
+
+	while (num > 0)
+	{
+		binaryNum[i++] = num % 2;
+		num /= 2;
+	}
+	for (j = i - 1; j >= 0; j--)
+		_putchar(binaryNum[j]);
 }
